@@ -1,26 +1,27 @@
-import java.util.Random;
-
-public class MonteCarlo 
+import java.util.Scanner;
+import java.io.*;
+import java.text.*;
+public class PDA
 {
-    public double  h,k,r;
-    private  Random rndm = new Random();
-	public MonteCarlo(double h,double k,double r)
-	{
-	 this.h=h;
-	 this.k=k;
-	 this.r=r;
-	}
-	
-	public double nextRainDrop_x(){
-		return (rndm.nextDouble()*2*r)+(h-r);
-	}
-	
-	public double nextRainDrop_y(){
-		return (rndm.nextDouble()*2*r)+(k-r);
-	}
-	
-	public boolean insideCirle(double x , double y){
-		
-		return Math.pow((x-h), 2)+Math.pow((y-k), 2)<=Math.pow(r,2);
-	}
+  public static void main(String args[]) {
+    Scanner age = new Scanner(System.in);
+    System.out.print("What's your age? " );
+    if(age.hasNextDouble()){
+      double a = age.nextDouble();
+      NumberFormat fmt = NumberFormat.getNumberInstance();
+      fmt.setMaximumFractionDigits(0);
+      fmt.setMinimumFractionDigits(0);
+      String s = fmt.format(a);
+      
+      double n = Double.parseDouble(s);
+      double p = n;
+      double x = p/2+7;
+      double y = 2*p-x;
+    
+      System.out.print("Your permissable dating age is between: " + x + " and " + y);
+    }
+    else{
+      System.out.println("Input a number you hooligan!");
+    }
+  }
 }
